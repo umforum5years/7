@@ -311,13 +311,13 @@
 
             var moorhuhnFlyLeft1 = new MoorhuhnFlying('mfl1', -1, context.canvas.width, context.canvas.height, './assets/graphics/Moorhuhn_MZ.png', './assets/graphics/Moorhuhn_L_zasah.png');
             var moorhuhnFlyRight1 = new MoorhuhnFlying('mfr1', 1, context.canvas.width, context.canvas.height, './assets/graphics/Moorhuhn_MZ.png', './assets/graphics/Moorhuhn_P_zasah.png');
-            
+
             var moorhuhnFlyLeft2 = new MoorhuhnFlying('mfl2', -1, context.canvas.width, context.canvas.height, './assets/graphics/Moorhuhn_UM.png', './assets/graphics/Moorhuhn_L_zasah.png');
             var moorhuhnFlyRight2 = new MoorhuhnFlying('mfr2', 1, context.canvas.width, context.canvas.height, './assets/graphics/Moorhuhn_UM.png', './assets/graphics/Moorhuhn_P_zasah.png');
-            
+
             var moorhuhnFlyLeft3 = new MoorhuhnFlying('mfl3', -1, context.canvas.width, context.canvas.height, './assets/graphics/Moorhuhn_DT.png', './assets/graphics/Moorhuhn_L_zasah.png');
             var moorhuhnFlyRight3 = new MoorhuhnFlying('mfr3', 1, context.canvas.width, context.canvas.height, './assets/graphics/Moorhuhn_DT.png', './assets/graphics/Moorhuhn_P_zasah.png');
-            
+
             var moorhuhnFlyLeft4 = new MoorhuhnFlying('mfl4', -1, context.canvas.width, context.canvas.height, './assets/graphics/Moorhuhn_KT.png', './assets/graphics/Moorhuhn_L_zasah.png');
             var moorhuhnFlyRight4 = new MoorhuhnFlying('mfr4', 1, context.canvas.width, context.canvas.height, './assets/graphics/Moorhuhn_KT.png', './assets/graphics/Moorhuhn_P_zasah.png');
 
@@ -425,7 +425,7 @@
             });
 
             // objekty za sebou v liste
-            var objects = [landscape1, 
+            var objects = [landscape1,
             moorhuhnFlyLeft1,moorhuhnFlyRight1,
                 moorhuhnFlyLeft2,moorhuhnFlyRight2,
                 moorhuhnFlyLeft3,moorhuhnFlyRight3,
@@ -582,7 +582,8 @@
                 }
 
                 if(typeof y === 'undefined') {
-                    var y = context.canvas.height - 20 - ammo.height;
+                    // var y = context.canvas.height - 20 - ammo.height;
+                    var y = 20;
                 }
 
                 var i = 1;
@@ -590,7 +591,7 @@
                 var magazine = 5;
 
                 if(typeof x === 'undefined') {
-                    var x = context.canvas.width / 4;
+                    var x = 200;
                     magazine = ammo.magazine;
                 }
 
@@ -600,11 +601,11 @@
                     buffer.drawImage(ammo.img, spriteX, spriteY, ammo.spriteWidth, ammo.spriteHeight, x, y, w, h);
                 }
 
-                buffer.font = buttons.size * 0.5 + "px Gomarice";
+                buffer.font = buttons.size * 0.5 + "px DelaGothicOne";
                 buffer.fillStyle = colors.color_passive;
                 buffer.textBaseline = 'top';
                 buffer.textAlign = 'center';
-                buffer.fillText('Use Space to Reload ammo', context.canvas.width / 2, context.canvas.height - 15); // y = 150
+                buffer.fillText('Пробел для перезарядки', context.canvas.width - 450, y); // y = 150
             }
 
             // HUD (Heads-Up Display)
@@ -729,11 +730,11 @@
 
             // Prvy vstup od uzivatela
             function pressAnyKeyText() {
-                buffer.font = buttons.size * 1.4 + "px Gomarice";
+                buffer.font = buttons.size * 1.4 + "px DelaGothicOne";
                 buffer.fillStyle = colors.color_passive;
                 buffer.textBaseline = 'top';
                 buffer.textAlign = 'center';
-                buffer.fillText('Press Any Key', width/2, height/2 - buttons.size * 1.4 / 2); // y = 150
+                buffer.fillText('Нажми для старта', width/2, height/2 - buttons.size * 1.4 / 2); // y = 150
 
                 return false;
             }
@@ -891,12 +892,12 @@
                 moorhuhnK = 60;
                 id_log = 0;
                 soundPool.sounds.game_over.played = false;
-                
+
             }
 
             // Nadpis - "UmForum Anniversary"
             function headingText() {
-                buffer.font = buttons.heading.h + "px Gomarice";
+                buffer.font = buttons.heading.h + "px DelaGothicOne";
                 buffer.fillStyle = colors.color_active;
                 buffer.textBaseline = 'top';
                 buffer.textAlign = 'center';
@@ -915,7 +916,7 @@
 
             // Text Game Over v Game Over obrazovke
             function gameOverText() {
-                buffer.font = buttons.heading.h + "px Gomarice";
+                buffer.font = buttons.heading.h + "px DelaGothicOne";
                 buffer.fillStyle = colors.red;
                 buffer.textBaseline = 'top';
                 buffer.textAlign = 'center';
@@ -926,7 +927,7 @@
 
             // Text Score v Game Over obrazovke
             function scoreText() {
-                buffer.font = buttons.size + "px Gomarice";
+                buffer.font = buttons.size + "px DelaGothicOne";
                 buffer.fillStyle = colors.green;
                 buffer.textBaseline = 'top';
                 buffer.textAlign = 'center';
@@ -937,7 +938,7 @@
 
             // Text Continue v Game Over obrazovke
             function continueText() {
-                buffer.font = buttons.size + "px Gomarice";
+                buffer.font = buttons.size + "px DelaGothicOne";
                 buffer.fillStyle = colors.color_passive;
                 buffer.textBaseline = 'top';
                 buffer.textAlign = 'center';
@@ -961,16 +962,16 @@
                 headingText();
 
                 // Buttony
-                buffer.font = buttons.size + "px Gomarice";
+                buffer.font = buttons.size + "px DelaGothicOne";
                 buffer.fillStyle = colors.color_passive;
                 buffer.textBaseline = 'top';
                 buffer.textAlign = 'center';
 
-                buffer.fillText('Start', buttons.menu.start.x, buttons.menu.start.y); // y 150
+                buffer.fillText('Старт', buttons.menu.start.x, buttons.menu.start.y); // y 150
 
-               // buffer.fillText('About', buttons.menu.about.x, buttons.menu.about.y); // y 230
+                // buffer.fillText('About', buttons.menu.about.x, buttons.menu.about.y); // y 230
 
-                buffer.fillText('Settings', buttons.menu.settings.x, buttons.menu.settings.y);
+                buffer.fillText('Настройки', buttons.menu.settings.x, buttons.menu.settings.y);
             }
 
             // Click na Menu --> About
@@ -985,51 +986,51 @@
 
                 // Key Bindings
                 // ESC
-                buffer.font = texts.about.key_bindings.esc.h + "px Gomarice";
+                buffer.font = texts.about.key_bindings.esc.h + "px DelaGothicOne";
                 buffer.fillStyle = colors.color_active;
                 buffer.textAlign = 'end';
                 buffer.fillText('ESC', texts.about.key_bindings.esc.x, texts.about.key_bindings.esc.y);
                 // ESC text
-                buffer.font = texts.about.key_bindings.esc_text.h + "px Gomarice";
+                buffer.font = texts.about.key_bindings.esc_text.h + "px DelaGothicOne";
                 buffer.fillStyle = colors.color_passive;
                 buffer.textAlign = 'start';
                 buffer.fillText(' - Exit Fullscreen', texts.about.key_bindings.esc_text.x, texts.about.key_bindings.esc_text.y);
 
                 // P
-                buffer.font = texts.about.key_bindings.p.h + "px Gomarice";
+                buffer.font = texts.about.key_bindings.p.h + "px DelaGothicOne";
                 buffer.fillStyle = colors.color_active;
                 buffer.textAlign = 'end';
                 buffer.fillText('P', texts.about.key_bindings.p.x, texts.about.key_bindings.p.y);
                 // P text
-                buffer.font = texts.about.key_bindings.p_text.h + "px Gomarice";
+                buffer.font = texts.about.key_bindings.p_text.h + "px DelaGothicOne";
                 buffer.fillStyle = colors.color_passive;
                 buffer.textAlign = 'start';
                 buffer.fillText(' - Pause / unpause game', texts.about.key_bindings.p_text.x, texts.about.key_bindings.p_text.y);
 
                 // Left Click
-                buffer.font = texts.about.key_bindings.left_click.h + "px Gomarice";
+                buffer.font = texts.about.key_bindings.left_click.h + "px DelaGothicOne";
                 buffer.fillStyle = colors.color_active;
                 buffer.textAlign = 'end';
                 buffer.fillText('Left Click', texts.about.key_bindings.left_click.x, texts.about.key_bindings.left_click.y);
                 // Left Click text
-                buffer.font = texts.about.key_bindings.left_click_text.h + "px Gomarice";
+                buffer.font = texts.about.key_bindings.left_click_text.h + "px DelaGothicOne";
                 buffer.fillStyle = colors.color_passive;
                 buffer.textAlign = 'start';
                 buffer.fillText(' - Shoot', texts.about.key_bindings.left_click_text.x, texts.about.key_bindings.left_click_text.y);
 
                 // Space
-                buffer.font = texts.about.key_bindings.space.h + "px Gomarice";
+                buffer.font = texts.about.key_bindings.space.h + "px DelaGothicOne";
                 buffer.fillStyle = colors.color_active;
                 buffer.textAlign = 'end';
                 buffer.fillText('Space', texts.about.key_bindings.space.x, texts.about.key_bindings.space.y);
                 // Space text
-                buffer.font = texts.about.key_bindings.space_text.h + "px Gomarice";
+                buffer.font = texts.about.key_bindings.space_text.h + "px DelaGothicOne";
                 buffer.fillStyle = colors.color_passive;
                 buffer.textAlign = 'start';
                 buffer.fillText(' - Reload Magazine - Can be reloaded at any time', texts.about.key_bindings.space_text.x, texts.about.key_bindings.space_text.y);
 
                 // Moorhuhn
-                buffer.font = texts.about.key_bindings.moorhuhn.h + "px Gomarice";
+                buffer.font = texts.about.key_bindings.moorhuhn.h + "px DelaGothicOne";
                 buffer.fillStyle = colors.color_passive;
                 buffer.textAlign = 'center';
                 buffer.fillText('Moorhuhn', texts.about.key_bindings.moorhuhn.x, texts.about.key_bindings.moorhuhn.y);
@@ -1037,7 +1038,7 @@
                 buffer.drawImage(luo.mfr.img, luo.mfr.spriteX, luo.mfr.spriteY, luo.mfr.spriteWidth, luo.mfr.spriteHeight, texts.about.key_bindings.moorhuhn.img.x, texts.about.key_bindings.moorhuhn.img.y, texts.about.key_bindings.moorhuhn.img.w, texts.about.key_bindings.moorhuhn.img.h);
 
                 // Moorhuhn shot
-                buffer.font = texts.about.key_bindings.moorhuhn_shot.h + "px Gomarice";
+                buffer.font = texts.about.key_bindings.moorhuhn_shot.h + "px DelaGothicOne";
                 buffer.fillStyle = colors.color_passive;
                 buffer.textAlign = 'center';
                 buffer.fillText('Moorhuhn hit', texts.about.key_bindings.moorhuhn_shot.x, texts.about.key_bindings.moorhuhn_shot.y);
@@ -1045,7 +1046,7 @@
                 buffer.drawImage(luo.mfr.imgDead, luo.mfr.spriteX, luo.mfr.spriteHeight * 2, luo.mfr.spriteWidth, luo.mfr.spriteHeight, texts.about.key_bindings.moorhuhn_shot.img.x, texts.about.key_bindings.moorhuhn_shot.img.y, texts.about.key_bindings.moorhuhn_shot.img.w, texts.about.key_bindings.moorhuhn_shot.img.h);
 
                 // Magazine
-                buffer.font = texts.about.key_bindings.magazine.h + "px Gomarice";
+                buffer.font = texts.about.key_bindings.magazine.h + "px DelaGothicOne";
                 buffer.fillStyle = colors.color_passive;
                 buffer.textAlign = 'center';
                 buffer.fillText('Magazine', texts.about.key_bindings.magazine.x, texts.about.key_bindings.magazine.y);
@@ -1053,7 +1054,7 @@
                 drawAmmo(texts.about.key_bindings.magazine.img.x, texts.about.key_bindings.magazine.img.y, texts.about.key_bindings.magazine.img.h, texts.about.key_bindings.magazine.img.s);
 
                 // Back
-                buffer.font = buttons.size + "px Gomarice";
+                buffer.font = buttons.size + "px DelaGothicOne";
                 buffer.fillStyle = colors.color_passive;
                 buffer.textAlign = 'center';
                 buffer.fillText('Back', buttons.menu.about.b.back.x, buttons.menu.about.b.back.y);
@@ -1070,13 +1071,13 @@
                 headingText();
 
                 // Buttony
-                buffer.font = buttons.size + "px Gomarice";
+                buffer.font = buttons.size + "px DelaGothicOne";
                 buffer.fillStyle = colors.color_passive;
                 buffer.textBaseline = 'top';
                 buffer.textAlign = 'end';
 
                 // Text
-                buffer.fillText('Audio', buttons.menu.settings.b.audio.x, buttons.menu.settings.b.audio.y);
+                buffer.fillText('Звук', buttons.menu.settings.b.audio.x, buttons.menu.settings.b.audio.y);
                 // Checkbox
                 if(SETTINGS.AUDIO == true) { // Checked
                     buffer.drawImage(checkbox_c.img, buttons.menu.settings.b.audio.bx, buttons.menu.settings.b.audio.by, buttons.menu.settings.b.audio.bw, buttons.menu.settings.b.audio.bh);
@@ -1085,7 +1086,7 @@
                 }
 
                 // Text
-                buffer.fillText('Fullscreen', buttons.menu.settings.b.fullscreen.x, buttons.menu.settings.b.fullscreen.y);
+                buffer.fillText('Полный экран', buttons.menu.settings.b.fullscreen.x, buttons.menu.settings.b.fullscreen.y);
                 // Checkbox
                 if(SETTINGS.FULLSCREEN == true) { // Checked
                     buffer.drawImage(checkbox_c.img, buttons.menu.settings.b.fullscreen.bx, buttons.menu.settings.b.fullscreen.by, buttons.menu.settings.b.fullscreen.bw, buttons.menu.settings.b.fullscreen.bh);
@@ -1096,7 +1097,7 @@
                 buffer.textAlign = 'center';
 
                 // Back
-                buffer.fillText('Back', buttons.menu.settings.b.back.x, buttons.menu.settings.b.back.y);
+                buffer.fillText('Назад', buttons.menu.settings.b.back.x, buttons.menu.settings.b.back.y);
             }
 
             // Stlacenie klavesy pre pauznutie levelu
