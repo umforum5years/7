@@ -650,7 +650,11 @@
             // Vystrelenie
             function shoot(x, y) {
                 // ak mame prazdny zasobnik, nerob nic
-                if(ammo.isMagazineEmpty()) { return false; }
+                if(ammo.isMagazineEmpty()) { 
+                    ammo.reloadMagazine();
+                    soundPool.playReload();
+                    return false; 
+                }
 
                 soundPool.playShoot();
 
